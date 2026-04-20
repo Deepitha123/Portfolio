@@ -1,0 +1,142 @@
+.skills {
+  padding: 100px 0;
+  background-color: var(--bg-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 5rem;
+  letter-spacing: -1px;
+}
+
+.section-title span {
+  color: var(--accent);
+}
+
+.skills-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  width: 100%;
+}
+
+.skill-category-row {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.skill-category-row h3 {
+  font-size: 1.2rem;
+  color: var(--accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding-left: 2rem;
+  border-left: 3px solid var(--accent);
+  margin-left: 1rem;
+}
+
+/* Marquee Styles */
+.marquee-wrapper {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+
+.marquee-track {
+  display: flex;
+  width: fit-content;
+  white-space: nowrap;
+  gap: 2rem;
+  padding: 10px 0;
+  animation: scroll 30s linear infinite;
+}
+
+/* Pause on hover */
+.marquee-wrapper:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: var(--transition);
+  backdrop-filter: blur(5px);
+}
+
+.skill-item:hover {
+  background: rgba(0, 173, 181, 0.15);
+  border-color: rgba(0, 173, 181, 0.3);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.skill-icon {
+  font-size: 1.8rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+}
+
+.skill-item:hover .skill-icon {
+  color: var(--accent);
+  transform: scale(1.1);
+}
+
+.skill-name {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.skill-item:hover .skill-name {
+  color: var(--text-primary);
+}
+
+/* Alternative scroll direction for some rows */
+.marquee-track.reverse {
+  animation-direction: reverse;
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2.5rem;
+  }
+  .skill-item {
+    padding: 0.8rem 1.5rem;
+  }
+}
