@@ -6,7 +6,7 @@
 .section-title {
   font-size: 2.5rem;
   font-weight: 800;
-  margin-bottom: 3rem;
+  margin-bottom: 0.75rem;
   text-align: center;
   color: var(--text-primary);
 }
@@ -15,12 +15,21 @@
   color: var(--accent);
 }
 
+.projects-subtitle {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-bottom: 3rem;
+}
+
+/* ── Grid ── */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
   gap: 2rem;
 }
 
+/* ── Card ── */
 .project-card {
   border-radius: 1.5rem;
   overflow: hidden;
@@ -32,13 +41,14 @@
 
 .project-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
   border-color: var(--accent);
 }
 
+/* ── Image area ── */
 .project-image {
   position: relative;
-  height: 200px;
+  height: 190px;
   overflow: hidden;
 }
 
@@ -50,16 +60,17 @@
 }
 
 .project-card:hover .project-image img {
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 
+/* ── Hover overlay with GitHub button ── */
 .project-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(17, 20, 24, 0.8);
+  background: rgba(17, 20, 24, 0.82);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -76,56 +87,116 @@
   gap: 1.5rem;
 }
 
-.project-links a {
+.github-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   color: white;
-  font-size: 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background: rgba(0, 173, 181, 0.15);
+  border: 1.5px solid var(--accent);
+  padding: 0.55rem 1.2rem;
+  border-radius: 50px;
   transition: var(--transition);
+  backdrop-filter: blur(6px);
 }
 
-.project-links a:hover {
-  color: var(--accent);
-  transform: scale(1.2);
+.github-link svg {
+  font-size: 1.25rem;
 }
 
+.github-link:hover {
+  background: var(--accent);
+  color: var(--bg-primary);
+  transform: scale(1.06);
+}
+
+/* ── Card body ── */
 .project-info {
-  padding: 1.5rem;
+  padding: 1.4rem 1.5rem 1.5rem;
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 
-.project-info h3 {
-  font-size: 1.4rem;
-  margin-bottom: 0.8rem;
-  color: var(--text-primary);
+/* Title row with inline GitHub icon */
+.project-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 
-.project-info p {
-  font-size: 0.95rem;
+.project-header h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.github-icon-inline {
   color: var(--text-secondary);
-  line-height: 1.5;
-  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+
+.github-icon-inline:hover {
+  color: var(--accent);
+  transform: scale(1.2);
+}
+
+/* Subtitle under card title */
+.project-subtitle-text {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.02em;
+  opacity: 0.85;
+}
+
+/* Description */
+.project-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
   flex: 1;
 }
 
+/* Tags */
 .project-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.6rem;
+  gap: 0.5rem;
+  margin-top: auto;
 }
 
 .tag {
   background: rgba(0, 173, 181, 0.1);
   color: var(--accent);
-  padding: 0.3rem 0.8rem;
+  padding: 0.25rem 0.7rem;
   border-radius: 50px;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 600;
   border: 1px solid rgba(0, 173, 181, 0.2);
+  white-space: nowrap;
 }
 
+/* ── Responsive ── */
 @media (max-width: 768px) {
   .section-title {
     font-size: 2rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-image {
+    height: 170px;
   }
 }
